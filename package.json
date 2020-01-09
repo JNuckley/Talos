@@ -15,5 +15,8 @@
   },
   "dependencies": {
     "@babel/node": "^7.7.7"
-  }
+  },
+"scripts": {
+  "test": "test --passWithNoTests",
+}
 }
