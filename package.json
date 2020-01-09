@@ -2,5 +2,15 @@
   "name": "talos",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "https://github.com/JNuckley/Talos.git",
+  "author": "Richard <aagbajdos@gmail.com>",
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7"
+  },
+  "dependencies": {
+    "@babel/node": "^7.7.7"
+  }
 }
