@@ -1,19 +1,19 @@
-var five = require('johnny-five');
-var lightOn = true;
-//Make variables for the objects we'll be using
-var board, led, pushButton;
+/* eslint-disable no-console */
+import { Board, Led, Button } from 'johnny-five';
 
-//Make a new Board instance
-board = new five.Board();
+// Set `lightOn` to true as a default since our LED will be on
+let lightOn = true;
 
-//When the board's connected, turn on the LED connected to pin 9
+// Make a new Board Instance
+const board = new Board();
+// When the board's connected, turn on the LED connected to pin 9
 board.on('ready', function() {
   console.log('[johnny-five] Board is ready.');
 
   //Make a new Led object and connect it to pin 9
-  led = new five.Led(9);
+  const led = new Led(9);
 
-  var pushButton = new five.Button({
+  const pushButton = new Button({
     pin: 7,
     isPullup: true,
 
@@ -27,7 +27,7 @@ board.on('ready', function() {
   //Allows software to change values of light on and off when hardware...
   //buttons are pressed and will inform you if the light is already on...
   //or off.
-  
+
   pushButton.on('down', function () {
     if (lightOn) {
       led.off();
@@ -36,9 +36,9 @@ board.on('ready', function() {
       led.on();
       lightOn = true;
 
-  }
+    }
 
-});
+  });
   this.repl.inject({
     //Control the Led via calling for the objects
     led: led,
@@ -59,10 +59,10 @@ board.on('ready', function() {
         led.stop().off();
         lightOn = false;
       }
-    }
+    },
   });
   // commands = led.on(9), led.off(9),led.pulse(2000), led.stop(9)
-  //When the board is closing, stop any LED animations and turn it off
+  // When the board is closing, stop any LED animations and turn it off
   this.on('exit', function() {
     led.stop().off();
     console.log('[johnny-five] Bye Bye.');
