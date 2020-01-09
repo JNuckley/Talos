@@ -1,19 +1,20 @@
-var five = require('johnny-five');
-var lightOn = true;
+import { Board, Led, Button } from 'johnny-five';
+
+let lightOn = true;
 //Make variables for the objects we'll be using
-var board, led, pushButton;
+
 
 //Make a new Board instance
-board = new five.Board();
+const board = new Board();
 
 //When the board's connected, turn on the LED connected to pin 9
 board.on('ready', function() {
   console.log('[johnny-five] Board is ready.');
 
   //Make a new Led object and connect it to pin 9
-  led = new five.Led(9);
+  const led = new Led(9);
 
-  var pushButton = new five.Button({
+  const pushButton = new Button({
     pin: 7,
     isPullup: true,
 
@@ -27,7 +28,7 @@ board.on('ready', function() {
   //Allows software to change values of light on and off when hardware...
   //buttons are pressed and will inform you if the light is already on...
   //or off.
-  
+
   pushButton.on('down', function () {
     if (lightOn) {
       led.off();
