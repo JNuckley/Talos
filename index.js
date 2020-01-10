@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Board, Led, Button } from 'johnny-five';
 
 let lightOn = true;
@@ -37,9 +38,9 @@ board.on('ready', function() {
       led.on();
       lightOn = true;
 
-  }
+    }
 
-});
+  });
   this.repl.inject({
     //Control the Led via calling for the objects
     led: led,
